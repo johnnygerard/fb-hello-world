@@ -1,0 +1,96 @@
+/* Source: https://www.joshwcomeau.com/css/custom-css-reset/ */
+/********************** Start of Josh's Custom CSS Reset **********************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*********************** End of Josh's Custom CSS Reset ***********************/
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+li {
+  display: block;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+textarea {
+  display: block;
+  resize: none;
+  border: none;
+}
+
+hr {
+  height: 1px;
+  border: none;
+}
+
+dialog {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}

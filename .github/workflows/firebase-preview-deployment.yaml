@@ -12,6 +12,9 @@ jobs:
   build_and_preview:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.details_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,7 +23,10 @@ jobs:
           cache: "npm"
       - run: npm ci && npx ng version && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: deploy
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HELLO_WORLD_F3218 }}
           projectId: hello-world-f3218
+      # Temporary step for testing purposes
+      - run: echo "${{ steps.deploy.outputs }}"

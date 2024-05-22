@@ -2,14 +2,16 @@
 # Firebase CLI repository: https://github.com/firebase/firebase-tools
 # Command: firebase init hosting
 
-name: Deploy to Firebase Hosting on merge
+name: Firebase Hosting production deployment
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [released]
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.details_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,6 +20,7 @@ jobs:
           cache: "npm"
       - run: npm ci && npx ng version && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: deploy
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HELLO_WORLD_F3218 }}

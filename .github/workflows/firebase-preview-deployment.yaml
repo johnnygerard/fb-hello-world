@@ -29,4 +29,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HELLO_WORLD_F3218 }}
           projectId: hello-world-f3218
       # Temporary step for testing purposes
-      - run: echo "${{ steps.deploy.outputs }}"
+      - run: echo "${{ toJson(steps.deploy.outputs) }}"

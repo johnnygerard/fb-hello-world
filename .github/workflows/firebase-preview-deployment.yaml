@@ -2,7 +2,7 @@
 # Firebase CLI repository: https://github.com/firebase/firebase-tools
 # Command: firebase init hosting
 
-name: Deploy to Firebase Hosting on PR
+name: Firebase Hosting preview deployment
 on: pull_request
 permissions:
   checks: write

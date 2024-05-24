@@ -1,0 +1,30 @@
+@if (session.isAuthenticated()) {
+  <h1>Hello {{ session.user()?.displayName }}!</h1>
+  <button (click)="logOut()">Log Out</button>
+} @else {
+  <h1>Sorry, you are not logged in.</h1>
+  <form (ngSubmit)="logIn()" #form="ngForm">
+    <label>
+      <span>Email</span>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        autocomplete="email"
+        required
+      />
+    </label>
+    <label>
+      <span>Password</span>
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        autocomplete="current-password"
+        required
+      />
+    </label>
+    <button type="submit" [disabled]="form.invalid">Log In</button>
+  </form>
+  <p>Don't have an account? <a routerLink="/register">Register</a></p>
+}
